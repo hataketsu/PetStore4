@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>http://45.32.108.34:8082/</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/login</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/register</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/password/reset</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/cart</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/all</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/category/1</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/category/2</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/category/3</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/category/4</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/sale_off</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/blogs</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/contact</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/about</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/products/11</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/products/10</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/products/9</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/products/8</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/terms_of_service</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/dmca</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/blogs/2</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/blogs/3</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/blogs/4</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/blogs?page=1</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/blogs?page=2</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/blogs/6</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/blogs/5</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/blogs/</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/search?category=3</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://45.32.108.34:8082/search?category=2</loc>
+  <lastmod>2018-04-11T09:13:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
