@@ -32,7 +32,7 @@ class SearchController extends Controller
     public function category(Request $request, $category_id)
     {
         $products = Product::whereCategoryId($category_id);
-        $title = 'Danh mục "'.Category::findOrFail($category_id)->name.'""' ;
+        $title = 'Danh mục "'.Category::findOrFail($category_id)->name.'"' ;
         return $this->process($request, $products, $title);
     }
 

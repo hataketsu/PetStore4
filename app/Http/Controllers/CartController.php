@@ -54,7 +54,7 @@ class CartController extends Controller
     {
         $cart = $this->get_cart($request);
         unset($cart[$product_id]); //delete product from cart
-        \Session::flash('message', 'Đã laoị khỏi giỏ!');
+        \Session::flash('message', 'Đã bỏ khỏi giỏ!');
         Session::put('cart', serialize($cart));
     }
 

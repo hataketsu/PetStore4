@@ -75,7 +75,9 @@
 
         <script>
             function add_to_cart(product_id) {
-                location.href = '/cart/add/' + product_id + '/' + $('#product_quantity').val();
+                $.get('/cart/add/' + product_id + '/' + $('#product_quantity').val(),function (result) {
+                    location.reload();
+                });
             }
         </script>
 

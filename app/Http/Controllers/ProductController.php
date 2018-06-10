@@ -19,7 +19,7 @@ class ProductController extends Controller
      */
     public function manage()
     {
-        return view('product.list', ['items' => Product::all(), 'title' => 'Manage products']);
+        return view('product.list', ['items' => Product::all(), 'title' => 'Quản lý sản phẩm']);
     }
 
     /**
@@ -29,7 +29,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('product.edit',['title' => "Add new product"]);
+        return view('product.edit',['title' => "Tạo sản phẩm mới"]);
     }
 
     /**
@@ -87,7 +87,7 @@ class ProductController extends Controller
         if (null == \Session::get('errors'))
             $product->fill_olds();
 
-        return view('product.edit', ['item' => $product,'title' => "Edit old product"]);
+        return view('product.edit', ['item' => $product,'title' => "Chỉnh sửa sản phẩm"]);
     }
 
     /**
@@ -205,12 +205,12 @@ class ProductController extends Controller
 
     public function add_to_wishlist(Product $product){
         \Auth::user()->liked_products()->attach($product);
-        \Session::flash('message',$product->name.' is added to your wishlist.');
+        \Session::flash('message',$product->name.' đã thêm vào ưa thích.');
     }
 
     public function remove_from_wishlist(Product $product){
         \Auth::user()->liked_products()->detach($product);
-        \Session::flash('message',$product->name.' is removed from your wishlist.');
+        \Session::flash('message',$product->name.' đã bỏ thích.');
     }
 
 }
