@@ -66,7 +66,7 @@ class ProductController extends Controller
         $product->increaseView();
         $product->save();
 
-        $related = $product->category->products->random(4);
+        $related = $product->category->products->random(min(4,$product->category->products->count()));
         return view('product.detail', ['item' => $product,
             'is_bought' => $is_bought,
             'liked' => $liked,
