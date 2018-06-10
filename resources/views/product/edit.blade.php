@@ -35,7 +35,7 @@
                                 </div>
                             </div>
                         @endif
-                        @include('ui.form.select',['name'=>'category_id','label'=>'Danh mục *','options'=>\App\Danh mục::all()])
+                        @include('ui.form.select',['name'=>'category_id','label'=>'Danh mục *','options'=>\App\Category::all()])
                         @include('ui.form.input',['name'=>'short_detail','label'=>'Giới thiệu ngắn  *'])
                         @include('ui.form.ckeditor',['name'=>'full_html_detail','label'=>'Chi tiết sản phẩm *'])
                         @include('ui.form.input',['name'=>'price','label'=>'Giá ($) *','type'=>'number','min'=>0])

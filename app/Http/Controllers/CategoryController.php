@@ -14,7 +14,7 @@ class CategoryController extends Controller
      */
     public function manage()
     {
-        return view('category.list', ['items' => Category::all(), 'title' => 'Manage categories']);
+        return view('category.list', ['items' => Category::all(), 'title' => 'Quản lý danh mục']);
     }
 
     /**
@@ -27,7 +27,7 @@ class CategoryController extends Controller
         (new Category())->fill_olds();
         FlashToOld::flash_to_old(Category::pluck('sort')->max() + 1, 'sort');
 
-        return view('category.edit', ['title' => 'Create new category']);
+        return view('category.edit', ['title' => 'Tạo danh mục mới']);
     }
 
     /**
@@ -80,7 +80,7 @@ class CategoryController extends Controller
     {
         $category->fill_olds();
 
-        return view('category.edit', ['item' => $category, 'title' => 'Edit category']);
+        return view('category.edit', ['item' => $category, 'title' => 'Chỉnh sửa danh mục']);
     }
 
     /**

@@ -16,7 +16,7 @@ class SearchController extends Controller
     {
         $query = $request->get('query');
         $products = Product::query()->where('name', 'LIKE', '%' . $query . '%');
-        $title = 'Results of searching for "' . $query . '"';
+        $title = 'Kết quả tìm kiếm cho "' . $query . '"';
         return $this->process($request, $products, $title);
     }
 
@@ -24,7 +24,7 @@ class SearchController extends Controller
     public function all(Request $request)
     {
         $products = Product::query();
-        $title = 'All products availble';
+        $title = 'Tất cả sản phẩm';
         return $this->process($request, $products, $title);
     }
 
@@ -32,7 +32,7 @@ class SearchController extends Controller
     public function category(Request $request, $category_id)
     {
         $products = Product::whereCategoryId($category_id);
-        $title = Category::findOrFail($category_id)->name . ' category';
+        $title = 'Danh mục "'.Category::findOrFail($category_id)->name.'""' ;
         return $this->process($request, $products, $title);
     }
 
@@ -40,7 +40,7 @@ class SearchController extends Controller
     public function sale_off(Request $request)
     {
         $products = Product::whereRaw('price > sale_off');
-        $title = 'Sale off';
+        $title = 'Giảm giá';
         return $this->process($request, $products, $title);
     }
 
@@ -48,7 +48,7 @@ class SearchController extends Controller
     public function wish_list(Request $request)
     {
         $products = \Auth::user()->liked_products();
-        $title = 'My wishlist';
+        $title = 'Danh sách ưa thích';
         return $this->process($request, $products, $title);
     }
 

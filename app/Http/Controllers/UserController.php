@@ -9,7 +9,7 @@ class UserController extends Controller {
 
     //show all users to admin
 	public function index() {
-		return view( 'user.list', [ 'items' => User::all(), 'title' => 'Manage users' ] );
+		return view( 'user.list', [ 'items' => User::all(), 'title' => 'Quản lý người dùng' ] );
 	}
 
 

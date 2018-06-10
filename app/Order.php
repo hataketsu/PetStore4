@@ -30,11 +30,11 @@ class Order extends Model
 
     //all kinds of orders' statuses
     public static $ORDER_STATUS = [
-        'wait_confirm' => 'Wait for comfirm',  //waiting for admin confirms
-        'confirmed' => 'Confirmed',            //admin confirmed
-        'shipped' => 'Shipped',                //on shipping
-        'done' => 'Done',                       //shipped to user
-        'disposed' => 'Disposed'                //the user or admin cancel this order
+        'wait_confirm' => 'Chờ xử lý',  //waiting for admin confirms
+        'confirmed' => 'Đã xác nhận',            //admin confirmed
+        'shipped' => 'Đã vận chuyển',                //on shipping
+        'done' => 'Đã hoàn thành',                       //shipped to user
+        'disposed' => 'Đã hủy bỏ'                //the user or admin cancel this order
     ];
 
 

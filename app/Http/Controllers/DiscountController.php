@@ -22,7 +22,7 @@ class DiscountController extends Controller
      */
     public function manage()
     {
-        return view('discount.list', ['items' => Discount::all(), 'title' => 'Manage discounts']);
+        return view('discount.list', ['items' => Discount::all(), 'title' => 'Quản lý mã giảm giá']);
     }
 
     /**
@@ -34,7 +34,7 @@ class DiscountController extends Controller
     {
         (new Discount())->fill_olds();
 
-        return view('discount.edit', ['title' => 'Create new discount']);
+        return view('discount.edit', ['title' => 'Tạo mã giảm giá mới']);
     }
 
     /**
@@ -69,7 +69,7 @@ class DiscountController extends Controller
     {
         $discount->fill_olds();
 
-        return view('discount.edit', ['item' => $discount, 'title' => 'Edit discount']);
+        return view('discount.edit', ['item' => $discount, 'title' => 'Chỉnh sửa mã giảm giá']);
     }
 
     /**

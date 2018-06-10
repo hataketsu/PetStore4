@@ -26,7 +26,7 @@ class ProfileController extends Controller
         \Auth::user()->fill($request->all());
         \Auth::user()->save();
 
-        \Session::flash('message', 'User information changed successfully!');
+        \Session::flash('message', 'Đã đổi thông tin cá nhân!');
 
         return redirect('/profile/info');
     }
@@ -51,9 +51,9 @@ class ProfileController extends Controller
         if (\Hash::check($request->get('old_pw'), $user->password)) { //check if old password is match with hashed password
             $user->password = \Hash::make($request->get('new_pw')); //update new password
             $user->save(); //save info
-            \Session::flash('message', 'Password changed successfully!');
+            \Session::flash('message', 'Đã đổi mật khẩu!');
         } else {
-            \Session::flash('error', 'Your password was incorrect!');
+            \Session::flash('error', 'Sai mật khẩu cũ!');
         }
         return redirect('/profile/password');
     }

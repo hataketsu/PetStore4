@@ -16,7 +16,7 @@
             <thead>
             <tr>
                 <th>Hình ảnh</th>
-                <th>Sản phẩms</th>
+                <th>Sản phẩm</th>
                 <th>Giá</th>
                 <th>Giảm giá</th>
                 <th>Hành động</th>

@@ -43,7 +43,7 @@ class CartController extends Controller
             $cart[$product_id] = $number; //else create new product in cart
         }
 
-        \Session::flash('message', 'Added to cart!');
+        \Session::flash('message', 'Đã thêm vào giỏ!');
         Session::put('cart', serialize($cart));
     }
 
@@ -54,7 +54,7 @@ class CartController extends Controller
     {
         $cart = $this->get_cart($request);
         unset($cart[$product_id]); //delete product from cart
-        \Session::flash('message', 'Removed from cart!');
+        \Session::flash('message', 'Đã laoị khỏi giỏ!');
         Session::put('cart', serialize($cart));
     }
 
@@ -63,7 +63,7 @@ class CartController extends Controller
     {
         list($items, $item_number, $total) = $this->get_cart_items($request);
         if ($item_number == 0) {
-            \Session::flash('error', 'Nothing to checkout!');
+            \Session::flash('error', 'Không có gì để thanh toán!');
 
             return redirect('/cart');
         }
@@ -75,7 +75,7 @@ class CartController extends Controller
 
 
         return view('cart.checkout', [
-            'title' => 'Checkout',
+            'title' => 'Thanh toán',
             'items' => $items,
             'total' => $total,
             'discounted' => $this->get_discounted($total),
@@ -89,7 +89,7 @@ class CartController extends Controller
         if (\Session::has('code')) {
             $query = Discount::whereCode(\Session::get('code'));
             if ($query->count() != 1) {
-                \Session::flash('error', 'Discount code is invalid!');
+                \Session::flash('error', 'Mã giảm giá không hợp lệ!');
                 \Session::remove('code');
                 \Session::remove('discount');
                 return redirect('/cart');
@@ -143,7 +143,7 @@ class CartController extends Controller
             $order_item->save();
         }
 
-        \Session::flash('message', 'Check out successfully!');
+        \Session::flash('message', 'Thanh toán thành công!');
         \Session::remove('code');
         \Session::remove('discount');
         Mail::to($order->email)->queue(new \App\Mail\OrderShipped($order));
@@ -186,7 +186,7 @@ class CartController extends Controller
         $code = $request->get('discount');
         $query = Discount::whereCode(trim($code));
         if ($query->count() != 1) {
-            \Session::flash('error', 'Discount code is invalid!');
+            \Session::flash('error', 'Mã giảm giá không hợp lệ!');
             \Session::remove('code');
             \Session::remove('discount');
         } else {
@@ -197,7 +197,7 @@ class CartController extends Controller
             } elseif ($discount->type == 'total') {
                 \Session::put('discount', '-' . $discount->discount . '$');
             }
-            \Session::flash('message', 'Discount code is applied!');
+            \Session::flash('message', 'Đã áp dụng mã giảm giá!');
         }
         return redirect('/cart');
     }

@@ -61,8 +61,8 @@ class User extends Authenticatable {
 		'remember_token',
 	];
 	protected $attributes = [
-		'phone'    => "0",
-		'address'  => "not set yet",
+		'phone'    => "000",
+		'address'  => "chưa có ",
 		'is_admin' => false
 	];
 

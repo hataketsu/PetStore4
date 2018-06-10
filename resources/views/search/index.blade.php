@@ -3,7 +3,7 @@
     <div class="ui container">
         <div class="ui stackable grid">
             <div class="four wide column">
-                <div class="ui huge header">Filter</div>
+                <div class="ui huge header">Kết quả lọc</div>
                 <form class="ui form" action="{{Request::fullUrl()}}">
                     @include('ui.form.text',['name'=>'query','label'=>'Tìm kiếm'])
                     <div class="field">

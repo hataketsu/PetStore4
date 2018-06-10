@@ -23,12 +23,12 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('blog.index', ['title' => 'All blogs', 'blogs' => \App\Blog::query()->paginate(10)]);
+        return view('blog.index', ['title' => 'Tất cả bài viết', 'blogs' => \App\Blog::query()->paginate(10)]);
     }
 
     public function manage()
     {
-        return view('blog.list', ['items' => Blog::all(), 'title' => 'Manage blog']);
+        return view('blog.list', ['items' => Blog::all(), 'title' => 'Quản lý bài viết']);
     }
 
     /**
@@ -39,7 +39,7 @@ class BlogController extends Controller
     public function create()
     {
 
-        return view('blog.edit', ['title' => 'Create new post']);
+        return view('blog.edit', ['title' => 'Đăng bài mới']);
     }
 
     /**
@@ -82,7 +82,7 @@ class BlogController extends Controller
     {
         $blog = Blog::findOrFail($id);
         $blog->fill_olds();
-        return view('blog.edit', ['item' => $blog, 'title' => 'Edit post']);
+        return view('blog.edit', ['item' => $blog, 'title' => 'Chỉnh sửa bài viết']);
     }
 
     /**

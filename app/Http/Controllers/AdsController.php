@@ -15,7 +15,7 @@ class AdsController extends Controller
      */
     public function manage()
     {
-        return view('ads.list', ['items' => Ads::all(), 'title' => 'Manage ads']);
+        return view('ads.list', ['items' => Ads::all(), 'title' => 'Quản lý quảng cáo']);
     }
 
     /**
@@ -26,7 +26,7 @@ class AdsController extends Controller
     public function create()
     {
         (new Ads())->fill_olds();
-        return view('ads.edit', ['title' => 'Create new ads']);
+        return view('ads.edit', ['title' => 'Tạo quảng cáo mới']);
     }
 
     /**
@@ -79,7 +79,7 @@ class AdsController extends Controller
         $ads=Ads::findOrFail($ads_id);
         $ads->fill_olds();
 
-        return view('ads.edit', ['item' => $ads, 'title' => 'Edit ads']);
+        return view('ads.edit', ['item' => $ads, 'title' => 'Chỉnh sửa quảng cáo']);
     }
 
     /**
