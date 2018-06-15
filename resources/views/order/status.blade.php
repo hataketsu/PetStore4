@@ -6,7 +6,7 @@ Hello, {{$order->name}}
 
 Thank you for buying at our shop
 
-The order \#{{$order->id}} status is: {{$order->getTrạng thái()}}
+The order \#{{$order->id}} status is: {{$order->getStatus()}}
 
 @component('mail::button', ['url' => $url])
 View Order
