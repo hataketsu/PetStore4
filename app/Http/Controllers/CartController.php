@@ -48,13 +48,24 @@ class CartController extends Controller
     }
 
 
-
     //remove product form cart
     public function remove_from_cart(Request $request, $product_id)
     {
         $cart = $this->get_cart($request);
         unset($cart[$product_id]); //delete product from cart
         \Session::flash('message', 'Đã bỏ khỏi giỏ!');
+        Session::put('cart', serialize($cart));
+    }
+
+    //uddate cart
+    public function update_cart(Request $request)
+    {
+        $cart=collect();
+        $_items = json_decode($request->get('items'));
+        foreach ($_items as $product_id=>$qualtity){
+            $cart[$product_id]=$qualtity;
+        }
+        Session::flash('message', 'Đã cập nhật giỏ hàng!');
         Session::put('cart', serialize($cart));
     }
 
@@ -147,7 +158,7 @@ class CartController extends Controller
         \Session::remove('code');
         \Session::remove('discount');
         Mail::to($order->email)->queue(new \App\Mail\OrderShipped($order));
-        Session::put('cart',null);
+        Session::put('cart', null);
         return redirect('/');
     }
 

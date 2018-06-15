@@ -28,6 +28,9 @@
     @if($item->price > $item->sale_off)
         <div class="ui red top right attached label">Giảm giá</div>
     @endif
+    @if($item->in_stock < 1 )
+        <div class="ui red top left attached label">Hết hàng</div>
+    @endif
 
     <div class="content" style="text-align: center">
         <h2 class="header" style="white-space: nowrap;overflow-x: hidden;text-overflow: ellipsis">{{$item->name}}</h2>

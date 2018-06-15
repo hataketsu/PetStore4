@@ -191,5 +191,31 @@
         location.href = '/apply_discount?discount=' + code;
     }
 
+    function update_cart() {
+
+        list = {};
+        var errors = 0;
+        $('.product_input').each(function (v, e) {
+            id = $(e).data('id');
+            _val = parseInt($(e).val());
+            _max = parseInt($(e).attr('max'));
+            _min = parseInt($(e).attr('min'));
+            if (_val < _min || _val > _max) {
+                errors++;
+            } else {
+                list[id] = _val;
+            }
+        });
+        console.log(list);
+        if (errors > 0) {
+            alert("Số lượng không hợp lệ!");
+        } else {
+            $.get('/cart/update?items=' + JSON.stringify(list), function (result) {
+                    location.reload();
+            });
+        }
+
+    }
+
 
 </script>

@@ -140,9 +140,10 @@ return [
         'old_pw' => 'mật khẩu cũ',
         'price' => 'giá tiền',
         'category_id'=>'danh mục',
-        'short detail'=>'giới thiệu ngắn',
+        'short_detail'=>'giới thiệu ngắn',
         'full_html_detail'=>'chi tiết sản phẩm',
         'sale_off'=>'giá khuyến mãi',
+        'in_stock'=>'số lượng trong kho',
     ],
 
 ];

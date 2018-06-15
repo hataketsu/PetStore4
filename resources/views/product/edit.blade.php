@@ -40,6 +40,7 @@
                         @include('ui.form.ckeditor',['name'=>'full_html_detail','label'=>'Chi tiết sản phẩm *'])
                         @include('ui.form.input',['name'=>'price','label'=>'Giá ($) *','type'=>'number','min'=>0])
                         @include('ui.form.input',['name'=>'sale_off','label'=>'Giá khuyến mãi ($) *','type'=>'number'])
+                        @include('ui.form.input',['name'=>'in_stock','label'=>'Số lượng trong kho','type'=>'number'])
                         <button class="ui primary button" type="submit">Lưu</button>
                     </form>
                 </div>

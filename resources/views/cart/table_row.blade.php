@@ -1,7 +1,5 @@
 <tr>
-    <td>
-        {{$item['product']->id}}
-    </td>
+
     <td style="text-align: center   ">
 
         <a href="/products/{{$item['product']->id}}">
@@ -18,7 +16,13 @@
 
     </td>
     <td>
-        {{$item['quantity']}}
+        <div class="ui input">
+            <input data-id="{{$item['product']->id}}"
+                   max="{{$item['product']->in_stock}}"
+                   min="1"
+                   class="product_input"
+                   value="{{$item['quantity']}}" type="number">
+        </div>
     </td>
     <td class="footable-last-visible" style="display: table-cell;">
         <a onclick="ask_to_delete_item_from_cart({{$item['product']->id}})" href="javascript:void(0);"

@@ -16,6 +16,10 @@ class OrderItem extends Model {
 		return $this->belongsTo( 'App\\Product' );
 	}
 
+	public function order() {
+		return $this->belongsTo( 'App\\Order' );
+	}
+
 	//save product's price to this final_price
 	public function saveFinalPrice() {
 		$this->final_price = $this->product->getCost();

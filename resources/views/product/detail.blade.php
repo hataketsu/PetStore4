@@ -9,11 +9,15 @@
             <i class="right angle icon divider"></i>
             <div class="active section">{{$item->name}}</div>
         </div>
-
+        <br><br>
         <div class="ui two column stackable grid ">
             <div class="column">
+
                 @if($item->price > $item->sale_off)
-                    <div class="ui red top right attached label">Giảm gía</div>
+                    <div class="ui red top right attached label">Giảm giá</div>
+                @endif
+                @if($item->in_stock < 1 )
+                    <div class="ui red top left attached label">Hết hàng</div>
                 @endif
                 <div class="image square">
                     <img src="/images/{{explode(';',$item->image_urls)[0]}}" style="width: 100%" class="product_image"
@@ -32,6 +36,7 @@
                 <h1>{{$item->name}}</h1>
                 <div class="ui star rating" data-rating="{{$item->getScore()}}" data-max-rating="5"></div>
                 <p>({{$item->comments()->count()}} đánh giá)</p>
+                <p><b>Còn {{$item->in_stock}} sản phẩm trong kho</b></p>
                 @if($item->price>$item->sale_off)
                     <h2>
                         <del>{{$item->price}}$</del>
@@ -49,7 +54,8 @@
                     <div class="ui label">
                         Số lượng
                     </div>
-                    <input type="number" style="max-width: 80px" value="1" id="product_quantity" min="1">
+                    <input type="number" style="max-width: 80px" value="1" id="product_quantity" min="1"
+                           max="{{$item->in_stock}}">
                     <button class="ui primary button" onclick="add_to_cart({{$item->id}})">Thêm vào giỏ
                     </button>
                     @if(Auth::check())
@@ -75,9 +81,15 @@
 
         <script>
             function add_to_cart(product_id) {
-                $.get('/cart/add/' + product_id + '/' + $('#product_quantity').val(),function (result) {
-                    location.reload();
-                });
+                _min = parseInt($('#product_quantity').attr('min'));
+                _max = parseInt($('#product_quantity').attr('max'));
+                var qual = parseInt($('#product_quantity').val());
+                if (qual < _min || qual > _max) {
+                    alert("Số lượng không hợp lệ!");
+                } else
+                    $.get('/cart/add/' + product_id + '/' + qual, function (result) {
+                        location.reload();
+                    });
             }
         </script>
 

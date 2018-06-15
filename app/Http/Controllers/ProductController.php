@@ -130,6 +130,7 @@ class ProductController extends Controller
             'short_detail' => 'required',
             'full_html_detail' => 'required',
             'price' => 'required|numeric|min:0',
+            'in_stock' => 'required|numeric|min:0',
             'sale_off' => 'required|numeric|min:0|max:' . $request->get('price'), //tha sale-off must be <= price
         ]);
         $product->fill($request->all()); //fill all inputs to model

@@ -7,10 +7,12 @@
     </td>
     <td>{{$item->price}}$</td>
     <td>{{$item->sale_off}}$</td>
+    <td>{{$item->in_stock}} đơn vị</td>
     <td>
         <div class="ui buttons">
             <a href="/products/{{$item->id}}/edit" class="ui icon green button"><i class="pencil icon"></i> Sửa</a>
-            <a href="javascript:void(0);" onclick="ask_to_delete_product({{$item->id}})" class="ui icon yellow button"><i class="delete icon"></i> Xóa</a>
+            <a href="javascript:void(0);" onclick="ask_to_delete_product({{$item->id}})"
+               class="ui icon yellow button"><i class="delete icon"></i> Xóa</a>
         </div>
     </td>
 </tr>

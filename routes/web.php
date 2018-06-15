@@ -49,6 +49,7 @@ Route::redirect('/home', '/')->name('home');
 Route::get('/cart', 'CartController@index');
 Route::get('/cart/add/{product}/{number}', 'CartController@add_to_cart');
 Route::get('/cart/remove/{product}', 'CartController@remove_from_cart');
+Route::get('/cart/update', 'CartController@update_cart');
 Route::get('/checkout', 'CartController@checkout');
 Route::post('/save_checkout', 'CartController@save_checkout');
 

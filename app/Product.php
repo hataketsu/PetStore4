@@ -45,6 +45,7 @@ class Product extends Model
         'short_detail',
         'full_html_detail',
         'price',
+        'in_stock',
         'sale_off',
         'category_id'
     ];

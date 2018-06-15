@@ -11,7 +11,6 @@
         <table class="ui celled table">
             <thead>
             <tr>
-                <th></th>
                 <th>Sản phẩm</th>
                 <th>Giá</th>
                 <th>Số lượng</th>
@@ -25,8 +24,11 @@
             </tbody>
         </table>
         <div class="ui action input">
-            <input type="text" placeholder="Discount code..." id="discount_input">
-            <button class="ui red button" onclick="apply_discount()">Apply</button>
+            <input type="text" placeholder="Mã giảm giá..." id="discount_input">
+            <button class="ui red button" onclick="apply_discount()">Sử dụng</button>
+            <button class="ui green button" onclick="update_cart()">
+                <i class="refresh icon">  </i>
+                Cập nhật giỏ hàng</button>
         </div>
         {{--<button class="ui right floated primary button">Update cart</button>--}}
         <div class="ui two column grid" style="margin-top: 20px">
@@ -41,7 +43,8 @@
 
                     </strong></h1>
                 <a class="ui icon labeled teal button" href="/checkout">
-                    <i class="check icon"></i>Tiến hành thanh toán</a>
+                    <i class="check icon"></i>Tiến hành thanh toán
+                </a>
             </div>
         </div>
     </div>

@@ -65,8 +65,8 @@ class OrderController extends Controller
         $order = Order::findOrFail($id);
         $order->status = 'confirmed';
         $order->save();
-
-        Mail::to($order->email)->queue(new \App\Mail\OrderShipped($order));
+        if (env('SEND_EMAIL'))
+            Mail::to($order->email)->queue(new \App\Mail\OrderShipped($order));
 
         return redirect('/orders/' . $id);
     }
@@ -78,7 +78,8 @@ class OrderController extends Controller
         $order = Order::findOrFail($id);
         $order->status = 'shipped';
         $order->save();
-        Mail::to($order->email)->queue(new \App\Mail\OrderShipped($order));
+        if (env('SEND_EMAIL'))
+            Mail::to($order->email)->queue(new \App\Mail\OrderShipped($order));
 
         return redirect('/orders/' . $id);
     }
@@ -90,7 +91,13 @@ class OrderController extends Controller
         $order->status = 'done';
         $order->save();
         $this->log_sold($order);
-        Mail::to($order->email)->queue(new \App\Mail\OrderShipped($order));
+        if (env('SEND_EMAIL'))
+            Mail::to($order->email)->queue(new \App\Mail\OrderShipped($order));
+
+        foreach ($order->items as $item) {
+            $item->product->in_stock -= $item->quantity;
+            $item->product->save();
+        }
 
         return redirect('/orders/' . $id);
     }

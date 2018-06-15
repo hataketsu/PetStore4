@@ -19,6 +19,7 @@
                 <th>Sản phẩm</th>
                 <th>Giá</th>
                 <th>Giảm giá</th>
+                <th>Số lượng</th>
                 <th>Hành động</th>
             </tr>
             </thead>
