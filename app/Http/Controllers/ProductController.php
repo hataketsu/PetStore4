@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
 use App\Comment;
+use App\Log;
 use App\Product;
-use ClassesWithParents\F;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -29,7 +29,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('product.edit',['title' => "Tạo sản phẩm mới"]);
+        return view('product.edit', ['title' => "Tạo sản phẩm mới"]);
     }
 
     /**
@@ -42,6 +42,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = new Product();
+        $this->log(Log::PRODUCT_CREATED,$product->id);
 
         return $this->process($request, $product);
     }
@@ -62,11 +63,12 @@ class ProductController extends Controller
             $mycomment->fill_olds();
             $is_bought = $this->is_bought_this_product($product->id);
         }
-        $product->views += 1;
-        $product->increaseView();
+
+        $this->log(Log::PRODUCT_VIEW,$product->id);
+
         $product->save();
 
-        $related = $product->category->products->random(min(4,$product->category->products->count()));
+        $related = $product->category->products->random(min(4, $product->category->products->count()));
         return view('product.detail', ['item' => $product,
             'is_bought' => $is_bought,
             'liked' => $liked,
@@ -87,7 +89,7 @@ class ProductController extends Controller
         if (null == \Session::get('errors'))
             $product->fill_olds();
 
-        return view('product.edit', ['item' => $product,'title' => "Chỉnh sửa sản phẩm"]);
+        return view('product.edit', ['item' => $product, 'title' => "Chỉnh sửa sản phẩm"]);
     }
 
     /**
@@ -143,7 +145,7 @@ class ProductController extends Controller
             }
             $product->image_urls = $urls;
         } else if (is_null($product->image_urls)) {
-            $product->image_url = 'no-thumbnail.png' ; //there's no image, we will use default image
+            $product->image_url = 'no-thumbnail.png'; //there's no image, we will use default image
         }
         $product->save(); //save model to database
 
@@ -204,14 +206,24 @@ class ProductController extends Controller
         return false;
     }
 
-    public function add_to_wishlist(Product $product){
+    public function add_to_wishlist(Product $product)
+    {
         \Auth::user()->liked_products()->attach($product);
-        \Session::flash('message',$product->name.' đã thêm vào ưa thích.');
+        \Session::flash('message', $product->name . ' đã thêm vào ưa thích.');
     }
 
-    public function remove_from_wishlist(Product $product){
+    public function remove_from_wishlist(Product $product)
+    {
         \Auth::user()->liked_products()->detach($product);
-        \Session::flash('message',$product->name.' đã bỏ thích.');
+        \Session::flash('message', $product->name . ' đã bỏ thích.');
+    }
+
+    private function log($type, $product_id)
+    {
+        $log = Log::query()->firstOrNew(
+            ['type' => $type, 'value1' => $product_id, 'date'=>Carbon::today()->timestamp ]);
+        $log->value2++;
+        $log->save();
     }
 
 }

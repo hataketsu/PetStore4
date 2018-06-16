@@ -11,31 +11,16 @@
             @endforeach
         </div>
 
-        @if($top_views->count()>0)
-            <h1>Xem nhiều nhất hôm nay</h1>
+        @foreach(\App\Category::all() as $category)
+            <h1>Danh mục "{{$category->name}}"</h1>
             <div class="ui four column stackable grid">
-                @foreach($top_views as $log)
-                    @if($log->product!=null)
-                        <div class="column">
-                            @include('product.card',['item'=>$log->product])
-                        </div>
-                    @endif
+                @foreach($category->products->take(8) as $product)
+                    <div class="column">
+                        @include('product.card',['item'=>$product])
+                    </div>
                 @endforeach
             </div>
-        @endif
-
-        @if($top_sold->count()>0)
-            <h1>Bán nhiều nhất hôm nay</h1>
-            <div class="ui four column stackable grid">
-                @foreach($top_sold as $log)
-                    @if($log->product!=null)
-                        <div class="column">
-                            @include('product.card',['item'=>$log->product])
-                        </div>
-                    @endif
-                @endforeach
-            </div>
-        @endif
+        @endforeach
 
         <h1>Sản phẩm ngẫu nhiên</h1>
         <div class="ui four column stackable grid">

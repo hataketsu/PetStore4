@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\LogProductSold;
-use App\LogRevenue;
+use App\Log;
 use App\Order;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Mail;
 
@@ -46,16 +44,16 @@ class OrderController extends Controller
     public function dispose($id)
     {
         $order = Order::findOrFail($id);
+        Log::logInc(Log::ORDER_DISPOSE);
         if (\Auth::id() == $order->user_id || \Auth::user()->is_admin) {
             $order->status = 'disposed';
             $order->save();
 
-            return redirect('/orders/' . $id);
+            if (env('SEND_EMAIL'))
+                Mail::to($order->email)->queue(new \App\Mail\OrderShipped($order));
+
         }
-
-        Mail::to($order->email)->queue(new \App\Mail\OrderShipped($order));
-
-        return redirect('/' . $id);
+        return redirect('/orders/' . $id);
     }
 
     //confirm this order
@@ -67,6 +65,8 @@ class OrderController extends Controller
         $order->save();
         if (env('SEND_EMAIL'))
             Mail::to($order->email)->queue(new \App\Mail\OrderShipped($order));
+
+        Log::logInc(Log::ORDER_CONFIRMED);
 
         return redirect('/orders/' . $id);
     }
@@ -80,6 +80,7 @@ class OrderController extends Controller
         $order->save();
         if (env('SEND_EMAIL'))
             Mail::to($order->email)->queue(new \App\Mail\OrderShipped($order));
+        Log::logInc(Log::ORDER_SHIP);
 
         return redirect('/orders/' . $id);
     }
@@ -98,21 +99,19 @@ class OrderController extends Controller
             $item->product->in_stock -= $item->quantity;
             $item->product->save();
         }
+        Log::logInc(Log::ORDER_DONE);
+
 
         return redirect('/orders/' . $id);
     }
 
     //log this to sold
-    private function log_sold($order)
+    private function log_sold(Order $order)
     {
-        $revenue = LogRevenue::firstOrNew(['day' => Carbon::today()->timestamp]);
-        $revenue->total += $order->getFinalTotal();
-        $revenue->save();
+        Log::logInc(Log::REVENUE, $order->getFinalTotal());
 
         foreach ($order->items as $item) {
-            $sold = LogProductSold::firstOrNew(['day' => Carbon::today()->timestamp, 'product_id' => $item->product_id]);
-            $sold->solds += $item->quantity;
-            $sold->save();
+            Log::logInc(Log::SELL, $item->quantity);
         }
     }
 

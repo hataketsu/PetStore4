@@ -1,5 +1,5 @@
 <section>
-    <h2 class="ui header">Total</h2>
+    <h2 class="ui header">Chung</h2>
     <div class="ui three statistics">
 
 
@@ -8,7 +8,7 @@
                 {{\App\Product::count()}}
             </div>
             <div class="label">
-                Products
+                Sản phẩm
             </div>
         </a>
 
@@ -40,22 +40,22 @@
                 Đơn hàng
             </div>
         </a>
+        <a class="ui statistic" href="/manage/orders">
+            <div class="value">
+                {{\App\Blog::count()}}
+            </div>
+            <div class="label">
+                Bài viết
+            </div>
+        </a>
 
-        <div class="ui statistic">
+        <a class="ui statistic" href="/manage/orders">
             <div class="value">
-                {{$total_sold}}
+                {{\App\Discount::count()}}
             </div>
             <div class="label">
-                Products sold
+                Mã giảm giá
             </div>
-        </div>
-        <div class="ui statistic">
-            <div class="value">
-                {{$total_revenue}} $
-            </div>
-            <div class="label">
-                Revenue
-            </div>
-        </div>
+        </a>
     </div>
 </section>

@@ -110,22 +110,4 @@ class Product extends Model
         return Product::query()->where('name', 'LIKE', '%' . $name . '%');
     }
 
-
-    public function solds()
-    {
-        return $this->hasMany(LogProductSold::class);
-    }
-
-    public function views()
-    {
-        return $this->hasMany(LogProductView::class);
-    }
-
-    //increase today's view in log
-    public function increaseView()
-    {
-        $log_view = $this->views()->firstOrNew(['day' => Carbon::today()->timestamp]);
-        $log_view->views += 1;
-        $log_view->save();
-    }
 }

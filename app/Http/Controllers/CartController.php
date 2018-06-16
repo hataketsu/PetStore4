@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Discount;
+use App\Log;
 use App\Order;
 use App\OrderItem;
 use App\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cookie;
 use Mail;
-use phpDocumentor\Reflection\DocBlock\Tags\See;
 use Session;
 
 class CartController extends Controller
@@ -60,10 +59,10 @@ class CartController extends Controller
     //uddate cart
     public function update_cart(Request $request)
     {
-        $cart=collect();
+        $cart = collect();
         $_items = json_decode($request->get('items'));
-        foreach ($_items as $product_id=>$qualtity){
-            $cart[$product_id]=$qualtity;
+        foreach ($_items as $product_id => $qualtity) {
+            $cart[$product_id] = $qualtity;
         }
         Session::flash('message', 'Đã cập nhật giỏ hàng!');
         Session::put('cart', serialize($cart));
@@ -78,12 +77,10 @@ class CartController extends Controller
 
             return redirect('/cart');
         }
-//        if (!\Session::has('errors'))
         if (\Auth::check()) {
             FlashToOld::flash_to_olds(\Auth::user(), ['name', 'phone', 'email', 'address']);
         }
         list($items, $item_number, $total) = $this->get_cart_items($request);
-
 
         return view('cart.checkout', [
             'title' => 'Thanh toán',
@@ -125,6 +122,10 @@ class CartController extends Controller
         ]);
         list($items, $item_number, $total) = $this->get_cart_items($request);
 
+        if ($item_number == 0) {
+            \Session::flash('error', 'Giỏ hàng rỗng!');
+            return redirect('/');
+        }
         $order = new Order();
 
         if ($request->get('user_id') != null) {
@@ -157,8 +158,11 @@ class CartController extends Controller
         \Session::flash('message', 'Thanh toán thành công!');
         \Session::remove('code');
         \Session::remove('discount');
-        Mail::to($order->email)->queue(new \App\Mail\OrderShipped($order));
+        Log::logInc(Log::CHECKOUT);
+        if (env('SEND_EMAIL'))
+            Mail::to($order->email)->queue(new \App\Mail\OrderShipped($order));
         Session::put('cart', null);
+
         return redirect('/');
     }
 

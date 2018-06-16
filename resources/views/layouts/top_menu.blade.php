@@ -43,7 +43,7 @@
                     <div class="header">Quản lý</div>
                     <i class="dropdown icon"></i>
                     <div class="menu">
-                        <a class="item" href="/manage">Thống kê</a>
+                        <a class="item" href="/statistics">Thống kê</a>
                         <a class="item" href="/manage/products">Sản phẩm</a>
                         <a class="item" href="/manage/categories">Danh mục</a>
                         <a class="item" href="/manage/users">Người dùng</a>

@@ -9,7 +9,7 @@
             <div class="section" href="/orders">Đơn hàng</a>
             </div>
         </div>
-        <div class="ui huge header">Quản lý all orders</div>
+        <div class="ui huge header">Quản lý tất cả đơn hàng</div>
         <table class="ui celled table">
             <thead>
             <tr>

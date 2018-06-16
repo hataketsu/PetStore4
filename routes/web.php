@@ -57,7 +57,7 @@ Route::post('/save_checkout', 'CartController@save_checkout');
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/manage/orders', 'OrderController@manage');
 
-    Route::get('/manage', 'AdminController@dashboard');
+    Route::get('/manage', 'StatisticsController@index');
 
     Route::resource('/products', 'ProductController')->except(['show']);
     Route::get('/products/{id}/delete', 'ProductController@destroy');
