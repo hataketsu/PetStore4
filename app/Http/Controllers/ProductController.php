@@ -64,10 +64,6 @@ class ProductController extends Controller
             $is_bought = $this->is_bought_this_product($product->id);
         }
 
-        $this->log(Log::PRODUCT_VIEW,$product->id);
-
-        $product->save();
-
         $related = $product->category->products->random(min(4, $product->category->products->count()));
         return view('product.detail', ['item' => $product,
             'is_bought' => $is_bought,

@@ -62,7 +62,10 @@ class Log extends Model
      */
     public static function _get(): Model
     {
-        return Log::firstOrCreate(['date' => Carbon::today()->timestamp]);
+        $today = Carbon::today()->timestamp;
+        $log = Log::firstOrCreate(['date' => $today]);
+        $log->date = $today;
+        return $log;
     }
 
 

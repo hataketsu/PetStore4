@@ -192,7 +192,6 @@
     }
 
     function update_cart() {
-
         list = {};
         var errors = 0;
         $('.product_input').each(function (v, e) {
