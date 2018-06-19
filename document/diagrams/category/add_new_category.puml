@@ -1,0 +1,29 @@
+@startuml
+actor Admin
+boundary edit_category_view
+control CategoryController
+entity CategoryModel
+
+Admin -> edit_category_view : yêu cầu thêm danh mục
+activate Admin
+activate edit_category_view
+edit_category_view --> Admin :yêu cầu nhập dữ liệu danh mục mới
+deactivate edit_category_view
+Admin -> edit_category_view : nhập dữ liệu danh mục mới, bấm nút lưu
+deactivate Admin
+activate edit_category_view
+edit_category_view -> CategoryController: gửi thông tin
+deactivate edit_category_view
+activate CategoryController
+CategoryController -> CategoryController : kiểm tra dữ liệu
+CategoryController -> CategoryModel : lưu dữ liệu
+activate CategoryModel
+CategoryModel --> CategoryController : trả dữ liệu đã lưu
+deactivate CategoryModel
+CategoryController --> edit_category_view: trả kết qủa tạo danh mục mới
+deactivate CategoryController
+activate edit_category_view
+edit_category_view --> Admin: Hiển thị danh mục mới
+deactivate edit_category_view
+
+@enduml

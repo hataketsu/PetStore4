@@ -1,0 +1,38 @@
+@startuml
+actor Admin
+boundary list_blogs_view
+boundary edit_blog_view
+control BlogController
+entity BlogModel
+
+activate Admin
+Admin -> list_blogs_view: yêu cầu xem danh sách bài viết
+activate list_blogs_view
+list_blogs_view --> Admin: Hiển thị danh sách bài viết
+Admin -> list_blogs_view: Bấm nút sửa trên bài viết
+list_blogs_view -> edit_blog_view : chuyển hướng sang trang sửa bài viết
+deactivate list_blogs_view
+activate edit_blog_view
+edit_blog_view --> Admin : hiển thị nội dung bài viết
+deactivate edit_blog_view
+Admin -> edit_blog_view : sửa dữ liệu bài viết, bấm nút lưu
+deactivate Admin
+activate edit_blog_view
+edit_blog_view -> BlogController: gửi thông tin
+deactivate edit_blog_view
+activate BlogController
+BlogController -> BlogController : kiểm tra dữ liệu
+BlogController -> BlogModel : lưu dữ liệu
+activate BlogModel
+BlogModel --> BlogController : trả dữ liệu đã lưu
+deactivate BlogModel
+BlogController --> edit_blog_view: trả kết qủa lưu bài viết
+deactivate BlogController
+activate edit_blog_view
+
+edit_blog_view --> Admin: hiển thị bài viết đã sửa
+activate Admin
+deactivate edit_blog_view
+deactivate Admin
+
+@enduml

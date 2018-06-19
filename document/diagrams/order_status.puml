@@ -1,0 +1,17 @@
+@startuml
+
+[*] --> Waiting
+
+Waiting -->Dispose
+Waiting -->Confirm
+Confirm --> Ship
+Ship -->Done
+Done --> [*]
+Dispose--> [*]
+
+Waiting: Chờ xác nhận
+Confirm: Xác nhận đơn hàng
+Ship: vận chuyển đơn hàng
+Done: Hoàn thành  đơn hàng
+Dispose: Hủy đơn hàng
+@enduml

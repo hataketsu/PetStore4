@@ -1,0 +1,28 @@
+@startuml
+actor Admin
+boundary list_categories_view
+control CategoryController
+entity CategoryModel
+
+activate Admin
+Admin -> list_categories_view: yêu cầu xem danh sách danh mục
+activate list_categories_view
+Admin <-- list_categories_view: Hiển thị danh sách danh mục
+Admin -> list_categories_view: Bấm nút xóa trên danh mục
+Admin <-- list_categories_view: xác nhận xóa
+Admin -> list_categories_view: bấm xác nhận
+list_categories_view-> CategoryController: gửi yêu cầu xóa
+deactivate list_categories_view
+activate CategoryController
+CategoryController -> CategoryController : kiểm tra dữ liệu
+CategoryController -> CategoryModel : xóa dữ liệu
+activate CategoryModel
+CategoryModel --> CategoryController : trả kết qủa xóa danh mục
+deactivate CategoryModel
+list_categories_view <-- CategoryController : trả kết qủa xóa danh mục
+deactivate CategoryController
+Admin <-- list_categories_view :thông báo kết qủa xóa danh mục
+activate Admin
+deactivate Admin
+
+@enduml

@@ -1,0 +1,29 @@
+@startuml
+actor Admin
+boundary edit_discount_view
+control DiscountController
+entity DiscountModel
+
+Admin -> edit_discount_view : yêu cầu thêm mã giảm giá
+activate Admin
+activate edit_discount_view
+edit_discount_view --> Admin :yêu cầu nhập dữ liệu mã giảm giá mới
+deactivate edit_discount_view
+Admin -> edit_discount_view : nhập dữ liệu mã giảm giá mới, bấm nút lưu
+deactivate Admin
+activate edit_discount_view
+edit_discount_view -> DiscountController: gửi thông tin
+deactivate edit_discount_view
+activate DiscountController
+DiscountController -> DiscountController : kiểm tra dữ liệu
+DiscountController -> DiscountModel : lưu dữ liệu
+activate DiscountModel
+DiscountModel --> DiscountController : trả dữ liệu đã lưu
+deactivate DiscountModel
+DiscountController --> edit_discount_view: trả kết qủa tạo mã giảm giá mới
+deactivate DiscountController
+activate edit_discount_view
+edit_discount_view --> Admin: Hiển thị mã giảm giá mới
+deactivate edit_discount_view
+
+@enduml

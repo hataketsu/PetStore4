@@ -1,0 +1,28 @@
+@startuml
+actor Admin
+boundary list_discounts_view
+control DiscountController
+entity DiscountModel
+
+activate Admin
+Admin -> list_discounts_view: yêu cầu xem danh sách mã giảm giá
+activate list_discounts_view
+Admin <-- list_discounts_view: Hiển thị danh sách mã giảm giá
+Admin -> list_discounts_view: Bấm nút xóa trên mã giảm giá
+Admin <-- list_discounts_view: xác nhận xóa
+Admin -> list_discounts_view: bấm xác nhận
+list_discounts_view-> DiscountController: gửi yêu cầu xóa
+deactivate list_discounts_view
+activate DiscountController
+DiscountController -> DiscountController : kiểm tra dữ liệu
+DiscountController -> DiscountModel : xóa dữ liệu
+activate DiscountModel
+DiscountModel --> DiscountController : trả kết qủa xóa mã giảm giá
+deactivate DiscountModel
+list_discounts_view <-- DiscountController : trả kết qủa xóa mã giảm giá
+deactivate DiscountController
+Admin <-- list_discounts_view :thông báo kết qủa xóa mã giảm giá
+activate Admin
+deactivate Admin
+
+@enduml

@@ -1,0 +1,28 @@
+@startuml
+actor Admin
+boundary list_advertises_view
+control AdsController
+entity AdsModel
+
+activate Admin
+Admin -> list_advertises_view: yêu cầu xem danh sách quảng cáo
+activate list_advertises_view
+Admin <-- list_advertises_view: Hiển thị danh sách quảng cáo
+Admin -> list_advertises_view: Bấm nút xóa trên quảng cáo
+Admin <-- list_advertises_view: xác nhận xóa
+Admin -> list_advertises_view: bấm xác nhận
+list_advertises_view-> AdsController: gửi yêu cầu xóa
+deactivate list_advertises_view
+activate AdsController
+AdsController -> AdsController : kiểm tra dữ liệu
+AdsController -> AdsModel : xóa dữ liệu
+activate AdsModel
+AdsModel --> AdsController : trả kết qủa xóa quảng cáo
+deactivate AdsModel
+list_advertises_view <-- AdsController : trả kết qủa xóa quảng cáo
+deactivate AdsController
+Admin <-- list_advertises_view :thông báo kết qủa xóa quảng cáo
+activate Admin
+deactivate Admin
+
+@enduml

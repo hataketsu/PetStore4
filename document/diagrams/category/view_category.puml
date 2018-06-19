@@ -1,0 +1,31 @@
+@startuml
+actor Admin
+boundary list_categories_view
+boundary detail_categories_view
+control CategoryController
+entity CategoryModel
+
+activate Admin
+Admin -> list_categories_view: yêu cầu xem danh sách danh mục
+activate list_categories_view
+Admin <-- list_categories_view: Hiển thị danh sách danh mục
+Admin -> list_categories_view: Bấm vào danh mục
+deactivate Admin
+list_categories_view-> detail_categories_view: chuyển tới trang chi tiết danh mục
+deactivate list_categories_view
+activate detail_categories_view
+detail_categories_view ->CategoryController:yêu cầu lấy dữ liệu
+activate CategoryController
+CategoryController -> CategoryController : kiểm tra dữ liệu
+CategoryController -> CategoryModel : lấy dữ liệu
+activate CategoryModel
+CategoryModel --> CategoryController : trả dữ liệu danh mục
+deactivate CategoryModel
+detail_categories_view<-- CategoryController : trả kết qủa xóa danh mục
+deactivate CategoryController
+Admin <-- detail_categories_view:hiển thị tất cả sản phẩm trong danh mục
+activate Admin
+deactivate detail_categories_view
+deactivate Admin
+
+@enduml
