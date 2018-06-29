@@ -1,0 +1,27 @@
+@startuml
+|Admin|
+start
+:Chọn danh mục cần sửa;
+|Hệ thống|
+if (Kiểm tra danh mục) then (tốn tại)
+|Hệ thống|
+:Hiển thị thông tin danh mục;
+|Admin|
+repeat
+|Admin|
+:Sửa thông tin;
+:Bấm nút lưu;
+|Hệ thống|
+:Xử lý;
+repeat while(Kiểm tra thông tin) is (không hợp lệ)
+|Hệ thống|
+:Lưu danh mục;
+stop
+
+else (không tồn tại)
+|Hệ thống|
+:Báo lỗi không tồn tại;
+stop
+endif
+
+@enduml

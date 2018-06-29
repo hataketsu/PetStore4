@@ -1,0 +1,13 @@
+@startuml
+
+Người_dùng_đăng_nhập -up-> (Đăng nhập)
+Người_dùng_đăng_nhập -up-> (Đổi mật khẩu)
+Người_dùng_đăng_nhập -up-> (Đổi thông tin cá nhân)
+Người_dùng_đăng_nhập --> (Xem hàng)
+Người_dùng_đăng_nhập --> (Tìm kiếm)
+Người_dùng_đăng_nhập --> (Mua hàng)
+Người_dùng_đăng_nhập --> (Thanh toán)
+Người_dùng_đăng_nhập --> (Đưa vào danh sách yêu thích)
+Người_dùng_đăng_nhập --> (Quản lý đơn hàng của mình)
+
+@enduml

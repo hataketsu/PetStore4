@@ -1,0 +1,9 @@
+@startuml
+Admin -> (Quản lý danh mục)
+(Tạo danh mục mới ) -down-|> (Quản lý danh mục)
+(Liệt kê danh mục) -left-|> (Quản lý danh mục)
+(Chỉnh sửa danh mục) .up.> (Liệt kê danh mục) :extends
+(Xóa danh mục) .up.> (Liệt kê danh mục) :extends
+(Xem chi tiết danh mục) .up.> (Liệt kê danh mục) :extends
+(Tìm kiếm danh mục) .up.> (Liệt kê danh mục) :extends
+@enduml

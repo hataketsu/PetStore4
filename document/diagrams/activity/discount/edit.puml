@@ -1,0 +1,27 @@
+@startuml
+|Admin|
+start
+:Chọn mã giảm giá cần sửa;
+|Hệ thống|
+if (Kiểm tra mã giảm giá) then (tốn tại)
+|Hệ thống|
+:Hiển thị thông tin mã giảm giá;
+|Admin|
+repeat
+|Admin|
+:Sửa thông tin;
+:Bấm nút lưu;
+|Hệ thống|
+:Xử lý;
+repeat while(Kiểm tra thông tin) is (không hợp lệ)
+|Hệ thống|
+:Lưu mã giảm giá;
+stop
+
+else (không tồn tại)
+|Hệ thống|
+:Báo lỗi không tồn tại;
+stop
+endif
+
+@enduml

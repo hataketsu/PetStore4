@@ -1,0 +1,23 @@
+@startuml
+|Admin|
+start
+:Chọn quảng cáo muốn xóa;
+|Hệ thống|
+if (Kiểm tra quảng cáo) then (tốn tại)
+|Admin|
+if (Xác nhận xóa) then (đồng ý)
+|Hệ thống|
+:Xóa quảng cáo;
+else (không đồng ý)
+|Admin|
+stop
+endif
+else (không tồn tại)
+|Hệ thống|
+:Báo lỗi không tồn tại;
+stop
+endif
+
+stop
+
+@enduml

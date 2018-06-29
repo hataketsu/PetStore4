@@ -1,0 +1,9 @@
+@startuml
+Admin -> (Quản lý quảng cáo)
+(Tạo quảng cáo mới ) -down-|> (Quản lý quảng cáo)
+(Liệt kê quảng cáo) -left-|> (Quản lý quảng cáo)
+(Chỉnh sửa quảng cáo) .up.> (Liệt kê quảng cáo) :extends
+(Xóa quảng cáo) .up.> (Liệt kê quảng cáo) :extends
+(Xem chi tiết quảng cáo) .up.> (Liệt kê quảng cáo) :extends
+(Tìm kiếm quảng cáo) .up.> (Liệt kê quảng cáo) :extends
+@enduml

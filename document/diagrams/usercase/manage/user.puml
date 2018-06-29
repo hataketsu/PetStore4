@@ -1,0 +1,8 @@
+@startuml
+Admin -> (Quản lý người dùng)
+(Liệt kê người dùng) -left-|> (Quản lý người dùng)
+(Chỉnh sửa quyền hạn người dùng) .up.> (Liệt kê người dùng) :extends
+(Xóa người dùng) .up.> (Liệt kê người dùng) :extends
+(Xem chi tiết người dùng) .up.> (Liệt kê người dùng) :extends
+(Tìm kiếm người dùng) .up.> (Liệt kê người dùng) :extends
+@enduml

@@ -1,0 +1,6 @@
+@startuml
+Người_dùng -> (Đăng nhập)
+(Đổi mật khẩu) .up.> (Đăng nhập) :extends
+(Đổi thông tin cá nhân) .up.> (Đăng nhập) :extends
+
+@enduml

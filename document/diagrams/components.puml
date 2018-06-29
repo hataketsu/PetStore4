@@ -1,0 +1,24 @@
+@startuml
+
+[Giao diện quản lý] ..> [Quản lý nhân viên]
+[Giao diện quản lý] ..> [Quản lý sản phẩm]
+[Giao diện quản lý] ..> [Quản lý danh mục]
+[Giao diện quản lý] ..> [Quản lý quảng cáo]
+[Giao diện quản lý] ..> [Quản lý bài viết]
+[Giao diện quản lý] ..> [Quản lý đơn hàng]
+[Giao diện quản lý] ..> [Quản lý người dùng]
+
+[Quản lý nhân viên] ..>[Bảo mật]
+[Quản lý sản phẩm] ..>[Bảo mật]
+[Quản lý danh mục] ..>[Bảo mật]
+[Quản lý quảng cáo] ..>[Bảo mật]
+[Quản lý bài viết] ..>[Bảo mật]
+[Quản lý đơn hàng] ..>[Bảo mật]
+[Quản lý người dùng] ..>[Bảo mật]
+
+[Bảo mật] ..> [Cơ sở dữ liệu]
+
+[Đặt mua sản phẩm] .right.>[Bảo mật]
+[Giao diện giỏ hàng] .right.>[Đặt mua sản phẩm]
+[Giao diện giới thiệu sản phẩm] .up.>[Giao diện giỏ hàng]
+@enduml

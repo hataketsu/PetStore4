@@ -1,0 +1,23 @@
+@startuml
+|Admin|
+start
+:Chọn mã giảm giá muốn xóa;
+|Hệ thống|
+if (Kiểm tra mã giảm giá) then (tốn tại)
+|Admin|
+if (Xác nhận xóa) then (đồng ý)
+|Hệ thống|
+:Xóa mã giảm giá;
+else (không đồng ý)
+|Admin|
+stop
+endif
+else (không tồn tại)
+|Hệ thống|
+:Báo lỗi không tồn tại;
+stop
+endif
+
+stop
+
+@enduml

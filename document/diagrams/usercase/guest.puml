@@ -1,0 +1,7 @@
+@startuml
+Người_dùng_không_đăng_nhập -up-> (Xem hàng)
+Người_dùng_không_đăng_nhập -up-> (Tìm kiếm)
+Người_dùng_không_đăng_nhập -up-> (Mua hàng)
+Người_dùng_không_đăng_nhập -up-> (Thanh toán)
+
+@enduml

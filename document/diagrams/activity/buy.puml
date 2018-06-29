@@ -1,0 +1,23 @@
+@startuml
+|Khách hàng|
+start
+:Chọn sản phẩm muốn mua;
+|Hệ thống|
+:Kiểm tra hàng còn hay hết;
+:Thêm hàng vào giỏ;
+|Khách hàng|
+:Thanh toán;
+|Hệ thống|
+:Yêu cầu nhập thông tin vận đơn;
+|Khách hàng|
+repeat
+|Khách hàng|
+:Nhập thông tin;
+|Hệ thống|
+:Xử lý;
+repeat while(Kiểm tra thông tin) is (không hợp lệ)
+
+|Hệ thống|
+:Ghi nhận đơn hàng;
+stop
+@enduml

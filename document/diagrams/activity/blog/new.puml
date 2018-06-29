@@ -1,0 +1,18 @@
+@startuml
+|Admin|
+start
+:Tạo bài viết mới;
+|Hệ thống|
+:Yêu cầu nhập thông tin bài viết;
+|Admin|
+repeat
+|Admin|
+:Nhập thông tin;
+|Hệ thống|
+:Xử lý;
+repeat while(Kiểm tra thông tin) is (không hợp lệ)
+|Hệ thống|
+:Lưu bài viết mới;
+stop
+
+@enduml

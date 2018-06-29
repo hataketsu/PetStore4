@@ -1,0 +1,9 @@
+@startuml
+Admin -> (Quản lý mã giảm giá)
+(Tạo mã giảm giá mới ) -down-|> (Quản lý mã giảm giá)
+(Liệt kê mã giảm giá) -left-|> (Quản lý mã giảm giá)
+(Chỉnh sửa mã giảm giá) .up.> (Liệt kê mã giảm giá) :extends
+(Xóa mã giảm giá) .up.> (Liệt kê mã giảm giá) :extends
+(Xem chi tiết mã giảm giá) .up.> (Liệt kê mã giảm giá) :extends
+(Tìm kiếm mã giảm giá) .up.> (Liệt kê mã giảm giá) :extends
+@enduml

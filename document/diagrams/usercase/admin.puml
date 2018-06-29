@@ -1,0 +1,15 @@
+@startuml
+
+Admin --> (Đăng nhập)
+Admin --> (Quản lý sản phẩm)
+Admin --> (Quản lý danh mục)
+Admin --> (Quản lý người dùng)
+Admin --> (Quản lý đơn hàng)
+Admin --> (Quản lý quảng cáo)
+Admin --> (Quản lý bài viết)
+Admin --> (Quản lý mã giảm giá)
+Admin --> (Quản lý mã cài đặt)
+Admin --> (Đổi thông tin cá nhân)
+Admin --> (Đổi mật khẩu)
+
+@enduml

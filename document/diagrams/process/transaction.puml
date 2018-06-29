@@ -1,0 +1,20 @@
+@startuml
+
+|Khách hàng|
+start
+:Lựa chọn sản phẩm;
+:Đặt hàng;
+|Cửa hàng|
+:Tiếp nhận đơn hàng;
+:Kiểm tra tình trạng sản phẩm;
+:Thông báo về sản phẩm và đơn hàng;
+|Khách hàng|
+:Xác nhận mua hàng;
+|Cửa hàng|
+:Đóng gói;
+:Vận chuyển;
+|Khách hàng|
+:Nhận hàng;
+:Thanh toán;
+stop
+@enduml

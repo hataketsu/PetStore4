@@ -1,0 +1,18 @@
+@startuml
+|Admin|
+start
+:Tạo sản phẩm mới;
+|Hệ thống|
+:Yêu cầu nhập thông tin sản phẩm;
+|Admin|
+repeat
+|Admin|
+:Nhập thông tin;
+|Hệ thống|
+:Xử lý;
+repeat while(Kiểm tra thông tin) is (không hợp lệ)
+|Hệ thống|
+:Lưu sản phẩm mới;
+stop
+
+@enduml

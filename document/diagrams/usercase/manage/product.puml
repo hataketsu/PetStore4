@@ -1,0 +1,9 @@
+@startuml
+Admin -> (Quản lý sản phẩm)
+(Tạo sản phẩm mới ) -down-|> (Quản lý sản phẩm)
+(Liệt kê sản phẩm) -left-|> (Quản lý sản phẩm)
+(Chỉnh sửa sản phẩm) .up.> (Liệt kê sản phẩm) :extends
+(Xóa sản phẩm) .up.> (Liệt kê sản phẩm) :extends
+(Xem chi tiết sản phẩm) .up.> (Liệt kê sản phẩm) :extends
+(Tìm kiếm sản phẩm) .up.> (Liệt kê sản phẩm) :extends
+@enduml

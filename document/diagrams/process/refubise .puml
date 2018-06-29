@@ -1,0 +1,16 @@
+@startuml
+
+|Khách hàng|
+start
+:Yêu cầu bảo hành sản phẩm;
+|Cửa hàng|
+:Tiếp nhận yêu cầu;
+:Kiểm tra tình trạng sản phẩm;
+:Thông báo về vần đề của sản phẩm ;
+|Khách hàng|
+:Đưa ra quyết định;
+|Cửa hàng|
+:Ghi nhận yêu cầu;
+:Xử lý yêu cầu;
+stop
+@enduml

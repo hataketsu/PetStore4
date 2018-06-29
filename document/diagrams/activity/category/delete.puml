@@ -1,0 +1,23 @@
+@startuml
+|Admin|
+start
+:Chọn danh mục muốn xóa;
+|Hệ thống|
+if (Kiểm tra danh mục) then (tốn tại)
+|Admin|
+if (Xác nhận xóa) then (đồng ý)
+|Hệ thống|
+:Xóa danh mục;
+else (không đồng ý)
+|Admin|
+stop
+endif
+else (không tồn tại)
+|Hệ thống|
+:Báo lỗi không tồn tại;
+stop
+endif
+
+stop
+
+@enduml

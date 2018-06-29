@@ -1,0 +1,273 @@
+@startuml
+class Controller{
+}
+class AdminController{
+    + dashboard()
+}
+class AdsController{
+    + manage()
+}
+class AdsController{
+    + create()
+}
+class AdsController{
+    + store(Request $request)
+}
+class AdsController{
+    + show($id)
+}
+class AdsController{
+    + edit($ads_id)
+}
+class AdsController{
+    + update(Request $request, $ads_id)
+}
+class AdsController{
+    + destroy($id)
+}
+class AdsController{
+    + delete($id)
+}
+class Auth.LoginController{
+    + __construct()
+}
+class Auth.ResetPasswordController{
+    + __construct()
+}
+class Auth.ForgotPasswordController{
+    + __construct()
+}
+class Auth.RegisterController{
+    + __construct()
+}
+class Auth.RegisterController{
+    + confirm($id, $confirmation_code)
+}
+class BlogController{
+    + index()
+}
+class BlogController{
+    + manage()
+}
+class BlogController{
+    + create()
+}
+class BlogController{
+    + store(Request $request)
+}
+class BlogController{
+    + show($id)
+}
+class BlogController{
+    + edit($id)
+}
+class BlogController{
+    + update(Request $request, $id)
+}
+class BlogController{
+    + destroy($id)
+}
+class BlogController{
+    + delete($id)
+}
+class BlogController{
+    + show_page(Request $request)
+}
+class CartController{
+    + index(Request $request)
+}
+class CartController{
+    + add_to_cart(Request $request, $product_id, $number)
+}
+class CartController{
+    + remove_from_cart(Request $request, $product_id)
+}
+class CartController{
+    + update_cart(Request $request)
+}
+class CartController{
+    + checkout(Request $request)
+}
+class CartController{
+    + save_checkout(Request $request)
+}
+class CartController{
+    + apply_discount(Request $request)
+}
+class CategoryController{
+    + manage()
+}
+class CategoryController{
+    + create()
+}
+class CategoryController{
+    + store(Request $request)
+}
+class CategoryController{
+    + show($id)
+}
+class CategoryController{
+    + edit(Category $category)
+}
+class CategoryController{
+    + update(Request $request, Category $category)
+}
+class CategoryController{
+    + destroy($id)
+}
+class CategoryController{
+    + delete($id)
+}
+class DiscountController{
+    + manage()
+}
+class DiscountController{
+    + create()
+}
+class DiscountController{
+    + store(Request $request)
+}
+class DiscountController{
+    + edit(Discount $discount)
+}
+class DiscountController{
+    + update(Request $request, Discount $discount)
+}
+class DiscountController{
+    + destroy($id)
+}
+class DiscountController{
+    + delete($id)
+}
+class HomeController{
+    + index()
+}
+class OrderController{
+    + all()
+}
+class OrderController{
+    + manage()
+}
+class OrderController{
+    + show(Request $request, $id)
+}
+class OrderController{
+    + dispose($id)
+}
+class OrderController{
+    + confirm($id)
+}
+class OrderController{
+    + ship($id)
+}
+class OrderController{
+    + done($id)
+}
+class ProcessImage{
+	+ process_image( $file )
+}
+class ProductController{
+    + manage()
+}
+class ProductController{
+    + create()
+}
+class ProductController{
+    + store(Request $request)
+}
+class ProductController{
+    + show(Product $product)
+}
+class ProductController{
+    + edit(Product $product)
+}
+class ProductController{
+    + update(Request $request, $id)
+}
+class ProductController{
+    + destroy($id)
+}
+class ProductController{
+    + save_comment(Request $request, $product_id)
+}
+class ProductController{
+    + like_product(Request $request, $product_id)
+}
+class ProductController{
+    + dislike_product(Request $request, $product_id)
+}
+class ProductController{
+    + add_to_wishlist(Product $product)
+}
+class ProductController{
+    + remove_from_wishlist(Product $product)
+}
+class ProfileController{
+    + info(Request $request)
+}
+class ProfileController{
+    + save_info(Request $request)
+}
+class ProfileController{
+    + change_password(Request $request)
+}
+class ProfileController{
+    + save_password(Request $request)
+}
+class SearchController{
+    + search(Request $request)
+}
+class SearchController{
+    + all(Request $request)
+}
+class SearchController{
+    + category(Request $request, $category_id)
+}
+class SearchController{
+    + sale_off(Request $request)
+}
+class SearchController{
+    + wish_list(Request $request)
+}
+class SettingController{
+    + index()
+}
+class SettingController{
+    + save(Request $request)
+}
+class StatisticsController{
+    + index(Request $request)
+}
+class UserController{
+	+ index()
+}
+class UserController{
+	+ delete( $id )
+}
+class UserController{
+	+ make_admin( $id )
+}
+class UserController{
+	+ unmake_admin( $id )
+}
+
+BlogController -right-|> Controller
+HomeController -right-|> Controller
+AdminController -right-|> Controller
+DiscountController -up-|> Controller
+ProfileController -down-|> Controller
+CategoryController -left-|> Controller
+AdsController -up-|> Controller
+Auth.LoginController -up-|> Controller
+Auth.ResetPasswordController -up-|> Controller
+Auth.ForgotPasswordController -up-|> Controller
+Auth.RegisterController -up-|> Controller
+StatisticsController -left-|> Controller
+SettingController -left-|> Controller
+OrderController -down-|> Controller
+CartController -down-|> Controller
+UserController -down-|> Controller
+ProductController -down-|> Controller
+SearchController -down-|> Controller
+
+@enduml

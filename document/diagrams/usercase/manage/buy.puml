@@ -1,0 +1,5 @@
+@startuml
+Khách_mua_hàng -> (Mua hàng)
+(Xem hàng) .up.> (Mua hàng) :extends
+(Thanh toán ) .up.> (Mua hàng) :extends
+@enduml

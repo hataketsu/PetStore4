@@ -1,0 +1,7 @@
+@startuml
+
+!include admin.puml
+!include logged.puml
+!include guest.puml
+
+@enduml

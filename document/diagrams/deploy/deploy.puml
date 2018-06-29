@@ -1,0 +1,20 @@
+@startuml
+node Server_Khách_Hàng
+note top: chứa các phần dành cho khách hàng
+node Server_Admin
+note bottom: chứa các phần tương tác với người quản lý
+node Tường_lửa
+note top: Bảo vệ hệ thống
+node Server_Ứng_Dụng
+note bottom: chứa các phần liên quan nghiệp vụ
+node Server_CSDL
+note top: Chứa cơ sở dữ liệu
+node Máy_tính_quản_lý
+
+Server_Khách_Hàng - Tường_lửa
+Server_Admin -up- Tường_lửa
+Tường_lửa - Server_Ứng_Dụng
+Server_Ứng_Dụng - Server_CSDL
+Máy_tính_quản_lý -up- Server_Admin
+
+@enduml

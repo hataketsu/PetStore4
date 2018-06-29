@@ -1,0 +1,93 @@
+@startuml
+class Ads{
++id
++url
++image
+}
+
+class Blog{
++id
++title
++url
++thumb
++html_content
+}
+
+class Comment{
++id
++score
++user_id
++product_id
+}
+
+class Category{
++id
++name
++sort
+}
+
+class Discount{
++id
++name
++code
++type
++discount
++used_time
+}
+
+class Order{
++id
++user_id
++name
++email
++phone
++address
++note
++status
+}
+
+class Order_Item{
++id
++order_id
++product_id
++final_price
++quantity
+}
+
+class Product{
++id
++name
++image_urls
++short_detail
++full_html_detail
++price
++sale_odd
++category_id
+}
+
+class Setting{
++key
++value
+}
+
+class User{
++id
++name
++phone
++address
++is_admin
++email
++password
+}
+
+Category "1" -up-> "*" Product
+Product "1" -> "*" Comment
+User "1" -> "*" Comment
+User "1" -> "*" Order
+Order "1" -> "*" Order_Item
+Order_Item "1" -> "1" Product
+
+
+
+
+@enduml

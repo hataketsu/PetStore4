@@ -1,0 +1,9 @@
+@startuml
+Admin -> (Quản lý bài viết)
+(Tạo bài viết mới ) -down-|> (Quản lý bài viết)
+(Liệt kê bài viết) -left-|> (Quản lý bài viết)
+(Chỉnh sửa bài viết) .up.> (Liệt kê bài viết) :extends
+(Xóa bài viết) .up.> (Liệt kê bài viết) :extends
+(Xem chi tiết bài viết) .up.> (Liệt kê bài viết) :extends
+(Tìm kiếm bài viết) .up.> (Liệt kê bài viết) :extends
+@enduml
