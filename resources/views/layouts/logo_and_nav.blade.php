@@ -1,8 +1,8 @@
 <div class="ui container" style="margin-top: 60px">
     <div class="ui two column stackable grid">
         <a class="column" style="padding-left: 100px" href="/">
-            <div class="ui huge header"><span class="brand_name">Pet</span><span class="store_name">Store</span></div>
-            <div class="ui small header">Tìm cho mình thú nuôi yêu quý</div>
+            <div class="ui huge header"><span class="brand_name">NAT</span><span class="store_name">Store</span></div>
+            <div class="ui small header">Find you shoes</div>
         </a>
         <div class="column">
             <div class="ui borderless stackable menu">

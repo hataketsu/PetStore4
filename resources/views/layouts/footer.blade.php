@@ -4,7 +4,7 @@
         <div class="ui inverted secondary menu stackable three column grid">
             <div class="column">
                 <p class="ui dividing header item"><strong>Copyright</strong></p>
-                <p class="item"> PetStore © 2018. All Rights Reserved.</p>
+                <p class="item"> NATStore © 2018. All Rights Reserved.</p>
             </div>
             <div class="column">
                 <p class="ui dividing header item"><strong>Contact</strong></p>
@@ -19,6 +19,6 @@
             </div>
         </div>
         <h1 style="color: white;text-align: center">
-            <span style="border: solid 2px white;padding: 10px">PetStore.shop</span></h1>
+            <span style="border: solid 2px white;padding: 10px">NATStore.shop</span></h1>
     </div>
 </div>
