@@ -42,7 +42,6 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = new Product();
-        $this->log(Log::PRODUCT_CREATED,$product->id);
 
         return $this->process($request, $product);
     }
