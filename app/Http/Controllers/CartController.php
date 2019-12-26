@@ -36,13 +36,22 @@ class CartController extends Controller
     public function add_to_cart(Request $request, $product_id, $number)
     {
         $cart = $this->get_cart($request);
-        if ($cart->has($product_id)) {  //if this product existed in cart, just add the number
-            $cart[$product_id] += $number;
+        if ($cart->has($product_id)) {
+            $total = $cart[$product_id] + $number;
         } else {
-            $cart[$product_id] = $number; //else create new product in cart
+            $total = $number;
         }
+        if (Product::findOrFail($product_id)->in_stock >= $total) {
+            if ($cart->has($product_id)) {  //if this product existed in cart, just add the number
+                $cart[$product_id] += $number;
+            } else {
+                $cart[$product_id] = $number; //else create new product in cart
+            }
 
-        \Session::flash('message', 'Đã thêm vào giỏ!');
+            \Session::flash('message', 'Đã thêm vào giỏ!');
+        } else {
+            \Session::flash('error', 'Sản phẩm không có sẵn!!');
+        }
         Session::put('cart', serialize($cart));
     }
 
