@@ -2,7 +2,7 @@
 
 return [
     'email-title' => 'Please verify your email address',
-    'email-intro'=> 'To finalize the creation of your new PetStore account, please follow the link below to confirm your email address:',
+    'email-intro'=> 'To finalize the creation of your new NATStore account, please follow the link below to confirm your email address:',
     'email-button' => 'Confirm Email Address',
     'message' => ' Thank you for registering, please verify your email.',
     'success' => 'You have successfully verified your account! You can now login.',
